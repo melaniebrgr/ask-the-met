@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import QAToggle from './components/QAToggle'
 
 function QAPresenter() {
   const qas = useSelector((state) => state.qas)
@@ -6,7 +7,7 @@ function QAPresenter() {
   return (
     <>
       <h2>Created questions</h2>
-      { qas.map(qa => <p>{qa.q}</p>) }
+      { qas.map(({ id, q, a }) => <QAToggle key={id} q={q} a={a} />) }
     </>
   )
 }
