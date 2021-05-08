@@ -1,13 +1,26 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { qaDeleted } from '../../../store/slices/qas'
 
-function QAToggle({ q, a }) {
-  const [isAnswerDisplayed, setIsAnswerDisplayed] = useState(false)
+function QAToggle({ id, q, a }) {
+  const [detailsDisplayed, setDetailsDisplayed] = useState(false)
+  const dispatch = useDispatch()
+  const onDeleteButtonClick = () => {
+    dispatch(qaDeleted(id))
+  }
 
   return (
-    <div onClick={() => setIsAnswerDisplayed(!isAnswerDisplayed)}>
-      <p>{q}</p>
-      { isAnswerDisplayed && (<p>{a}</p>) }
-    </div>
+    <>
+      <p onClick={() => setDetailsDisplayed(!detailsDisplayed)}>{q}</p>
+      { detailsDisplayed && (
+        <>
+          <p>{a}</p>
+          <div>
+            <button onClick={onDeleteButtonClick}>Delete</button>
+          </div>
+        </>
+      )}
+    </>
   )
 }
 

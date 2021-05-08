@@ -7,7 +7,7 @@ function QAPresenter() {
   return (
     <>
       <h2>Created questions</h2>
-      { qas.map(({ id, q, a }) => <QAToggle key={id} q={q} a={a} />) }
+      { qas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />) }
     </>
   )
 }
