@@ -54,5 +54,5 @@ Based on these, an initial set of components might be:
 - [ ] As an art-lover I want to get a new, random art piece and see basic information about it.
 - [x] As an art-lover I only want to see the answers on click.
 - [x] As an art-lover I want to be able to edit or delete questions and answers I previously submitted.
-- [ ] As an art-lover I want to organize my questions alphabetically.
+- [x] As an art-lover I want to organize my questions alphabetically.
 - [ ] As an art-lover I want to understand how to use the app (through tooltips).

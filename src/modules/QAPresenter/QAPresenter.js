@@ -1,24 +1,27 @@
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+import { useMemo, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import QAToggle from './components/QAToggle'
+import { compareByQuestion } from './utils/compareByQuestion'
 import { qasDeleted } from '../../store/slices/qas'
 
 function QAPresenter() {
   const qas = useSelector((state) => state.qas)
   const qasCreated = useSelector((state) => Boolean(state.qas.length))
+  const [qasSorted, setQasSorted] = useState(false)
+  const memoizedQas = useMemo(() => qasSorted ? qas.slice().sort(compareByQuestion) : qas, [qasSorted, qas])
+  const handleSort = () => {
+    setQasSorted(true)
+  }
   const dispatch = useDispatch()
   const handleDelete = () => {
     dispatch(qasDeleted())
-  }
-  const handleSort = () => {
-    console.log("sort");
   }
 
   return (
     <>
       <h2>Created questions</h2>
       { qasCreated
-        ? qas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />)
+        ? memoizedQas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />)
         : <p>No questions yet!</p>
       }
       <div>
