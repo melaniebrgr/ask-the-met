@@ -14,7 +14,9 @@ function QAPresenter() {
     <>
       <h2>Created questions</h2>
       { qas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />) }
-      <button onClick={onDeleteButtonClick}>Remove all questions</button>
+      <div>
+        <button onClick={onDeleteButtonClick}>Remove all questions</button>
+      </div>
     </>
   )
 }
