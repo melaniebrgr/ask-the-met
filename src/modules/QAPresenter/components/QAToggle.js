@@ -8,7 +8,10 @@ function QAToggle({ id, q, a }) {
   const [detailsDisplayed, setDetailsDisplayed] = useState(false)
   const [editorDisplayed, setEditorDisplayed] = useState(false)
   const dispatch = useDispatch()
-  const onDeleteButtonClick = () => {
+  const handleDisplayEditor = () => {
+    setEditorDisplayed(!editorDisplayed)
+  }
+  const handleDelete = () => {
     dispatch(qaDeleted(id))
   }
 
@@ -21,8 +24,8 @@ function QAToggle({ id, q, a }) {
             <QAStatic q={q} a={a} answerDisplayed={detailsDisplayed} setAnswerDisplay={setDetailsDisplayed} />
             { detailsDisplayed && (
                 <>
-                  <button onClick={() => setEditorDisplayed(!editorDisplayed)}>Edit</button>
-                  <button onClick={onDeleteButtonClick}>Remove</button>
+                  <button onClick={handleDisplayEditor}>Edit</button>
+                  <button onClick={handleDelete}>Remove</button>
                 </>
             )}
           </>

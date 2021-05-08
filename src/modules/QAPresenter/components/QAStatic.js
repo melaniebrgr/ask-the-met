@@ -1,7 +1,11 @@
 function QAStatic({ q, a, answerDisplayed, setAnswerDisplay }) {
+  const handleAnswerDisplay = () => {
+    setAnswerDisplay(!answerDisplayed)
+  }
+  
   return (
     <>
-      <p onClick={() => setAnswerDisplay(!answerDisplayed)}>{q}</p>
+      <p onClick={handleAnswerDisplay}>{q}</p>
       { answerDisplayed && (<p>{a}</p>) }
     </>
   )
