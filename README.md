@@ -35,8 +35,7 @@ To discover the components (I'll call them modules to distiguish from UI compone
 
 - Art requested
 - Q&A submitted
-- Question editted
-- Answer editted
+- Q&A editted
 - Q&A deleted
 - Q&A sorted
 
@@ -44,7 +43,7 @@ Based on these, an initial set of components might be:
 
 - Art presenter component ("Art requested")
 - Q&A capture component ("Q&A submitted")
-- Q&A editor component ("Question editted", "Answer editted", "Q&A deleted")
+- Q&A editor component (Q&A editted, "Q&A deleted")
 - Q&A presenter component ("Q&A sorted")
 
 ![modules](./assets/ask-the-met.png)
