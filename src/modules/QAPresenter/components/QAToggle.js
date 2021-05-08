@@ -15,9 +15,7 @@ function QAToggle({ id, q, a }) {
       { detailsDisplayed && (
         <>
           <p>{a}</p>
-          <div>
-            <button onClick={onDeleteButtonClick}>Delete</button>
-          </div>
+          <button onClick={onDeleteButtonClick}>Remove</button>
         </>
       )}
     </>

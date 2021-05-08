@@ -10,10 +10,13 @@ export const qasSlice = createSlice({
     qaDeleted: (state, action) => {
       const i = state.findIndex(qa => qa.id === action.payload)
       state.splice(i, 1);
+    },
+    qasDeleted: (state) => {
+      state.splice(0, state.length);
     }
   },
 })
 
-export const { qasSubmitted, qaDeleted } = qasSlice.actions
+export const { qasSubmitted, qaDeleted, qasDeleted } = qasSlice.actions
 
 export default qasSlice.reducer
