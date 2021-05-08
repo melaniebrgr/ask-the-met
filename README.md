@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Ask the Met
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Visiting the Metropolitan Museum or Art in New York is not always feasible, even when there isn't a pandemic on. This shouldn't prevent us from appreciating and learning about the Met's collection though. With this simple app you can view a random piece or art, and create a list of questions and answers about it to review later.
 
-## Available Scripts
+## Architecture Description
 
-In the project directory, you can run:
+An art-oriented "flashcard" style app.
 
-### `yarn start`
+### Users
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Student or art history, expected to be handful per day.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Requirements
 
-### `yarn test`
+- An example question and answer is shown by default
+- Previously created questions and answers should be listed, and answer only revealed on click.
+- Questions should be persisted
+- Questions can be sorted for convenience
+- Questions can be deleted
+- Questions can be edited
+- How to use the app should be communicated through tooltips
+- Optional: tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Additional context
 
-### `yarn build`
+Tech stack must include react and redux. Optionally, depending on time, the supplementary stack will be tailwind (theming), react hook form (forms), ramda (utils), react routing (routing), firebase (db).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Architecture characteristics
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Architecture characterists are the "ilities" particular to an application that can or should influence to overall application architecture. In the case of "Ask the Met", one such characteristic could be **robustness**. If the internet goes down or is unavailable, as a ~~user~~ art-lover, I want my questions and answers to be saved. Accordingly, offline caching and asynchronous deferred data upload will be explored.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Components
 
-### `yarn eject`
+To discover the components of the application I tried an "event storming" approach where I assume events are used to communicate within and without the application (a.k.a typical of a standard redux app). Then components grouping the types of events were derived. For the ~~user~~ art-lover, the following core events are envisioned (subject to change):
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Art requested
+- Q&A submitted
+- Question editted
+- Answer editted
+- Q&A deleted
+- Q&A sorted
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Based on these, an initial set of components might be:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Art detail presenter component ("Art requested")
+- Q&A capture component ("Q&A submitted")
+- Q&A editor component ("Question editted", "Answer editted", "Q&A deleted")
+- Q&A presenter component ("Q&A sorted")
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Stories
 
-## Learn More
+- [ ] As an art-lover I want to formulate a question and answer about a piece and save it.
+- [ ] As an art-lover I want to get a new, random art piece and see basic information about it.
+- [ ] As an art-lover I only want to see the answers on click.
+- [ ] As an art-lover I want to be able to edit or delete questions and answers I previously submitted.
+- [ ] As an art-lover I want to organize my questions alphabetically.
+- [ ] As an art-lover I want to understand how to use the app (through tooltips).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
