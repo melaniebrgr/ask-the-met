@@ -47,6 +47,8 @@ Based on these, an initial set of components might be:
 - Q&A editor component ("Question editted", "Answer editted", "Q&A deleted")
 - Q&A presenter component ("Q&A sorted")
 
+![modules](./assets/ask-the-met.png)
+
 ## Stories
 
 - [ ] As an art-lover I want to formulate a question and answer about a piece and save it.
