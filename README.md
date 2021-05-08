@@ -31,7 +31,7 @@ Architecture characterists are the "ilities" particular to an application that c
 
 ### Components
 
-To discover the components of the application I tried an "event storming" approach where I assume events are used to communicate within and without the application (a.k.a typical of a standard redux app). Then components grouping the types of events were derived. For the ~~user~~ art-lover, the following core events are envisioned (subject to change):
+To discover the components (I'll call them modules to distiguish from UI components) of the application I tried an "event storming" approach where I assume events are used to communicate within and without the application (a.k.a typical of a standard redux app). Then module grouping the types of events were derived. For the ~~user~~ art-lover, the following core events are envisioned (subject to change):
 
 - Art requested
 - Q&A submitted
@@ -42,7 +42,7 @@ To discover the components of the application I tried an "event storming" approa
 
 Based on these, an initial set of components might be:
 
-- Art detail presenter component ("Art requested")
+- Art presenter component ("Art requested")
 - Q&A capture component ("Q&A submitted")
 - Q&A editor component ("Question editted", "Answer editted", "Q&A deleted")
 - Q&A presenter component ("Q&A sorted")
