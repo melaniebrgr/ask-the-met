@@ -27,7 +27,7 @@ Tech stack must include react and redux. Optionally, depending on time, the supp
 
 ### Architecture characteristics
 
-Architecture characterists are the "ilities" particular to an application that can or should influence to overall application architecture. In the case of "Ask the Met", one such characteristic could be **robustness**. If the internet goes down or is unavailable, as a ~~user~~ art-lover, I want my questions and answers to be saved. Accordingly, offline caching and asynchronous deferred data upload will be explored.
+Architecture characterists are the "ilities" particular to an application that can or should influence to overall application architecture. In the case of "Ask the Met", one such characteristic could be **resilience**. If the internet goes down or is unavailable, as a ~~user~~ art-lover, I want my questions and answers to be saved. Accordingly, offline caching and asynchronous deferred data upload will be explored.
 
 ### Components
 
