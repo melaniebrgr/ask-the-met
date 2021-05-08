@@ -1,8 +1,14 @@
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
+import { useDispatch } from 'react-redux'
+import { v4 as uuid } from 'uuid';
+import { qaSubmitted } from '../../store/slices/qa'
 
 function QACapture() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors } } = useForm()
+  const dispatch = useDispatch()
+  const onSubmit = data => {
+    dispatch(qaSubmitted({ id: uuid(), q: data.question, a: data.answer }))
+  };
 
   return (
     <>
