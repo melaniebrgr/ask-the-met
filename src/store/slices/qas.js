@@ -13,9 +13,17 @@ export const qaSubmitted = createAsyncThunk(
 
 export const qasHydrated = createAsyncThunk(
   'qas/qasHydrated',
-  async () => {
-    console.log(JSON.parse(localStorage.getItem('ask-the-met/qas')));
-    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
+  async (_, { getState }) => {
+    const stateQas = getState().qas.data
+    const localStorageQas = JSON.parse(localStorage.getItem('ask-the-met/qas')) || []
+    const mergedQas = [ ...stateQas ]
+
+    localStorageQas.forEach(qaA => {
+      const qaExists = Boolean(stateQas.find(qaB => qaA.id === qaB.id))
+      if (!qaExists) mergedQas.push(qaA)
+    })
+
+    return mergedQas;
   }
 )
 
