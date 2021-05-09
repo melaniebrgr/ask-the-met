@@ -19,18 +19,13 @@ function QAToggle({ id, q, a }) {
     <>
       { editorDisplayed
         ? <QAEditor id={id} q={q} a={a} setEditorDisplay={setEditorDisplayed} />
-        : (
-          <div className="bg-gray-50 p-4 my-2">
+        : (<div className="bg-gray-50 p-4 my-2">
             <QAStatic q={q} a={a} answerDisplayed={detailsDisplayed} setAnswerDisplay={setDetailsDisplayed} />
-            { detailsDisplayed && (
-                <>
-                  <button onClick={handleDisplayEditor} className="mt-2 mr-3 rounded border border-gray-300 bg-gray-50 hover:bg-gray-100 text-gray-500">Edit</button>
-                  <button onClick={handleDelete} className="mt-2 rounded border border-gray-300 bg-gray-50 hover:bg-gray-100 text-gray-500">Remove</button>
-                </>
-            )}
-          </div>
-        )
-      }
+            { detailsDisplayed && (<>
+              <button onClick={handleDisplayEditor} className="mt-2 mr-3 rounded border border-gray-300 bg-gray-50 hover:bg-gray-100 text-gray-500">Edit</button>
+              <button onClick={handleDelete} className="mt-2 rounded border border-gray-300 bg-gray-50 hover:bg-gray-100 text-gray-500">Remove</button>
+            </>)}
+          </div>)}
     </>
   )
 }
