@@ -22,7 +22,7 @@ function QAPresenter() {
   return (
     <>
       <header className="has-tooltip">
-        <p className='tooltip rounded shadow-lg p-1 bg-red-50 text-red-600 -mt-4 py-2 px-4'>Here you can find the created questions and their answers</p>
+        <p className='tooltip rounded shadow-lg p-1 bg-red-50 text-red-600 -mt-4 py-2 px-4'>Here you can find the created questions and their answers. Click on a question to see the answer.</p>
         <h2>Created questions</h2>
       </header>
       { qasCreated
