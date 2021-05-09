@@ -27,7 +27,7 @@ Tech stack must include react and redux. The supplementary stack is tailwind (th
 
 ### Architecture characteristics
 
-Architecture characterists are the "-ilities" particular to an application that can or should influence the overall application architecture. In the case of "Ask the Met", one such characteristic might be **resilience**. If the internet becomes unavailable, as a ~~user~~ art-lover, I wanted my questions and answers to be saved. Accordingly, offline caching was explored and localstorage was used to persist Q&As. If the art-lover refreshes the page the QAs are rehydrated from localstorage for instance. After successful caching in localstorage the next step would be to upload the Q&As to the db. The Q&As are less likeely to be lost this way.
+Architecture characterists are the "-ilities" particular to an application that can or should influence the overall application architecture. In the case of "Ask the Met", one such characteristic might be **resilience**. If the internet becomes unavailable, as a ~~user~~ art-lover, I wanted my questions and answers to be saved. Accordingly, offline caching was explored and localstorage was used to persist Q&As. If the art-lover refreshes the page the QAs are rehydrated from localstorage for instance. After successful caching in localstorage the next step would be to upload the Q&As to the db. The Q&As are less likely to be lost this way.
 
 ### Modules
 
