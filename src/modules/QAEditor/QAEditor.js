@@ -12,16 +12,16 @@ function QAEditor({ id, q, a, setEditorDisplay }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div class="bg-white-50 p-4 my-2">
-        <p class="mb-3">
-          <input id="edittedQuestion" defaultValue={q} {...register("edittedQuestion", { required: true })} class="block w-full" />
+      <div className="bg-white-50 p-4 my-2">
+        <p className="mb-3">
+          <input id="edittedQuestion" defaultValue={q} {...register("edittedQuestion", { required: true })} className="block w-full" />
           {errors.question && <span>This field is required</span>}
         </p>
         <p>
-          <input id="edittedAnswer" defaultValue={a} {...register("edittedAnswer", { required: true })} class="block w-full" />
+          <input id="edittedAnswer" defaultValue={a} {...register("edittedAnswer", { required: true })} className="block w-full" />
           {errors.answer && <span>This field is required</span>}
         </p>
-        <input type="submit" class="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500" />
+        <input type="submit" className="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500" />
       </div>
     </form>
   )

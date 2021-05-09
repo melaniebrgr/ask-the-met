@@ -19,17 +19,17 @@ function QAPresenter() {
 
   return (
     <>
-      <header class="has-tooltip">
-        <p class='tooltip rounded shadow-lg p-1 bg-red-50 text-red-600 -mt-4 py-2 px-4'>Here you can find the created questions and their answers</p>
+      <header className="has-tooltip">
+        <p className='tooltip rounded shadow-lg p-1 bg-red-50 text-red-600 -mt-4 py-2 px-4'>Here you can find the created questions and their answers</p>
         <h2>Created questions</h2>
       </header>
       { qasCreated
         ? memoizedQas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />)
-        : <p class="text-red-400">No questions!</p>
+        : <p className="text-red-400">No questions!</p>
       }
       { qasCreated && (<div>
-        <button onClick={handleSort} class="mt-2 mr-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Sort questions</button>
-        <button onClick={handleDelete} class="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Remove questions</button>
+        <button onClick={handleSort} className="mt-2 mr-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Sort questions</button>
+        <button onClick={handleDelete} className="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Remove questions</button>
       </div>)}
     </>
   )

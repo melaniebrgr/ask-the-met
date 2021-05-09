@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <h1>Ask the Met</h1>
-      <div class="px-6">
+      <div className="px-6">
         <QACapture />
         <QAPresenter />
       </div>
