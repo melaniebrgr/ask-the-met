@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-serif text-5xl bg-red-600 text-white p-6;
+  }
+  h2 {
+    @apply font-serif text-3xl pt-6 pb-3;
+  }
+  p {
+    @apply font-sans text-base leading-normal my-1;
+  }
+  label {
+    @apply font-sans leading-loose px-2 py-1.5;
+  }
+  input {
+    @apply font-sans leading-loose rounded border border-gray-300 bg-gray-100 placeholder-gray-600 focus:bg-white placeholder-opacity-50 px-2 py-1;
+  }
+  button, input[type="submit"] {
+    @apply bg-white font-sans text-sm uppercase leading-loose px-4 py-2;
+  }
+}

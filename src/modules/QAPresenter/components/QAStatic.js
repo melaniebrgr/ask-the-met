@@ -5,8 +5,8 @@ function QAStatic({ q, a, answerDisplayed, setAnswerDisplay }) {
   
   return (
     <>
-      <p onClick={handleAnswerDisplay}>{q}</p>
-      { answerDisplayed && (<p>{a}</p>) }
+      <p onClick={handleAnswerDisplay} class="text-red-600">{q}</p>
+      { answerDisplayed && (<p class="text-red-600">{a}</p>) }
     </>
   )
 }

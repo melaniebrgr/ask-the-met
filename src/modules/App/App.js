@@ -10,17 +10,19 @@ function App() {
   useEffect(() => {
     dispatch(qasSubmitted({ 
       id: uuid(),
-      q: "How to add a question?",
+      q: "How to add a question? (Click me to find out)",
       a: "Just use the form!"
     }))
   }, [])
 
   return (
-    <div>
+    <>
       <h1>Ask the Met</h1>
-      <QACapture />
-      <QAPresenter />
-    </div>
+      <div class="px-6">
+        <QACapture />
+        <QAPresenter />
+      </div>
+    </>
   );
 }
 

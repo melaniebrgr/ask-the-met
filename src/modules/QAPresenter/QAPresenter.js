@@ -22,11 +22,11 @@ function QAPresenter() {
       <h2>Created questions</h2>
       { qasCreated
         ? memoizedQas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />)
-        : <p>No questions yet!</p>
+        : <p class="text-red-400">No questions!</p>
       }
       <div>
-        <button onClick={handleSort}>Sort questions</button>
-        <button onClick={handleDelete}>Remove questions</button>
+        <button onClick={handleSort} class="mt-2 mr-3 rounded border border-purple-300 bg-white-50 hover:bg-purple-100 text-purple-500">Sort questions</button>
+        <button onClick={handleDelete} class="mt-2 rounded border border-purple-300 bg-white-50 hover:bg-purple-100 text-purple-500">Remove questions</button>
       </div>
     </>
   )
