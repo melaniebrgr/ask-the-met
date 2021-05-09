@@ -28,8 +28,8 @@ function QAPresenter() {
         : <p class="text-red-400">No questions!</p>
       }
       { qasCreated && (<div>
-        <button onClick={handleSort} class="mt-2 mr-3 rounded border border-purple-300 bg-white-50 hover:bg-purple-100 text-purple-500">Sort questions</button>
-        <button onClick={handleDelete} class="mt-2 rounded border border-purple-300 bg-white-50 hover:bg-purple-100 text-purple-500">Remove questions</button>
+        <button onClick={handleSort} class="mt-2 mr-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Sort questions</button>
+        <button onClick={handleDelete} class="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Remove questions</button>
       </div>)}
     </>
   )

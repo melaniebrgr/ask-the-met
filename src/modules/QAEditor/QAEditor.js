@@ -21,7 +21,7 @@ function QAEditor({ id, q, a, setEditorDisplay }) {
           <input id="edittedAnswer" defaultValue={a} {...register("edittedAnswer", { required: true })} class="block w-full" />
           {errors.answer && <span>This field is required</span>}
         </p>
-        <input type="submit" class="mt-2 rounded border border-purple-300 bg-white-50 hover:bg-purple-100 text-purple-500" />
+        <input type="submit" class="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500" />
       </div>
     </form>
   )

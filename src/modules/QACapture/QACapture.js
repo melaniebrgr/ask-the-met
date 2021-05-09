@@ -27,7 +27,7 @@ function QACapture() {
           <input id="answer" placeholder="What's your answer?" {...register("answer", { required: true })} />
           {errors.answer && <span class="text-red-400"> This field is required</span>}
         </p>
-        <input type="submit" class="mt-3 rounded border border-purple-300 bg-white-50 hover:bg-purple-100 text-purple-500" />
+        <input type="submit" class="mt-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500" />
       </form>
     </>
   )
