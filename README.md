@@ -59,16 +59,16 @@ Based on these, an initial set of components might be:
 
 ## Improvements
 
-Like a piece of art, an application is never done, we only stop working on it. If I had more time here's what I would do additionally:
+Like a piece of art, an application is never done, we only stop working on it. Here's what I would like to do additionally:
 
 - Improve unit test coverage, ideally any component or util that contains logic is covered by a unit test
-- Improve e2e test coverage, ideally the core user flow of the application is covered by an e2e test
-- Extract common components to folder or component library, e.g. "primary-button"
-- Introduce ramda and use it for more convenient data transformation
-- Add animation transitions for a more natural feeling UI/UX
-- Replace simple localstorage with [Redux Persist](https://www.npmjs.com/package/redux-persist)
-- Persist QAs to a real DB
-- Handle error cases and introduce monitoring, e.g. add Sentry
+- Add e2e test coverage, ideally the core user flow of the application is covered by an e2e test
+- Extract common components to a component library, e.g. primary and secondary buttons
+- Introduce ramda and use it for data transformation
+- Add animation and/or transitions for a more natural feeling UI/UX
+- Replace plain localstorage with [Redux Persist](https://www.npmjs.com/package/redux-persist)
+- Persist QAs to a database
+- Handle error cases and introduce monitoring, e.g. Sentry
 
 ## Getting started
 
