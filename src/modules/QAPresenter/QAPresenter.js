@@ -26,18 +26,17 @@ function QAPresenter() {
         <h2>Created questions</h2>
       </header>
       { qasCreated
-        ? (
-          <>
-            { memoizedQas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />) }
-            { error && <p className="bg-red-50 p-4 my-2">Something went wrong</p> }
-            { pending && <p className="bg-red-50 p-4 my-2">Saving question...</p> }
-            <div>
-              <button onClick={handleSort} className="mt-2 mr-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Sort questions</button>
-              <button onClick={handleDelete} className="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Remove questions</button>
-            </div>
-          </>
-        ): <p className="text-red-400">No questions!</p>
+        ? memoizedQas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />)
+        : <p className="text-red-400">No questions!</p>
       }
+      { error && <p className="bg-red-50 p-4 my-2">Something went wrong</p> }
+      { pending && <p className="bg-red-50 p-4 my-2">Saving question...</p> }
+      { qasCreated && (
+        <div>
+          <button onClick={handleSort} className="mt-2 mr-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Sort questions</button>
+          <button onClick={handleDelete} className="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Remove questions</button>
+        </div>
+      )}
     </>
   )
 }
