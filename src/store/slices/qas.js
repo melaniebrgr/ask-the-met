@@ -2,15 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid';
 import { sleep } from '../utils/sleep'
 
-export const qaSubmitted = createAsyncThunk(
-  'qas/qaSubmitted',
-  async (qa, { getState }) => {
-    await sleep(5000) // delay to simulate a backend request per instructions
-    localStorage.setItem('ask-the-met/qas', JSON.stringify([...getState().qas.data, qa]));
-    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
-  }
-)
-
 export const qasHydrated = createAsyncThunk(
   'qas/qasHydrated',
   async (_, { getState }) => {
@@ -24,6 +15,32 @@ export const qasHydrated = createAsyncThunk(
     })
 
     return mergedQas;
+  }
+)
+
+export const qaSubmitted = createAsyncThunk(
+  'qas/qaSubmitted',
+  async (qa, { getState }) => {
+    await sleep(5000) // delay to simulate a backend request per instructions
+    localStorage.setItem('ask-the-met/qas', JSON.stringify([...getState().qas.data, qa]));
+    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
+  }
+)
+
+export const qasDeleted = createAsyncThunk(
+  'qas/qasDeleted',
+  async () => {
+    localStorage.setItem('ask-the-met/qas', JSON.stringify([]));
+    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
+  }
+)
+
+export const qaDeleted = createAsyncThunk(
+  'qas/qaDeleted',
+  async (id, { getState }) => {
+    const stateQas = getState().qas.data
+    localStorage.setItem('ask-the-met/qas', JSON.stringify(stateQas.filter(qa => qa.id !== id)));
+    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
   }
 )
 
@@ -41,16 +58,12 @@ export const qasSlice = createSlice({
     qaEditted: (state, action) => {
       const i = state.data.findIndex(qa => qa.id === action.payload.id)
       state.data[i] = action.payload
-    },
-    qaDeleted: (state, action) => {
-      const i = state.data.findIndex(qa => qa.id === action.payload)
-      state.data.splice(i, 1);
-    },
-    qasDeleted: (state) => {
-      state.data.splice(0, state.data.length);
     }
   },
   extraReducers: {
+    [qasHydrated.fulfilled](state, action) {
+      state.data = action.payload
+    },
     [qaSubmitted.pending](state, action) {
       state.requestStatus = action.meta.requestStatus
     },
@@ -61,12 +74,15 @@ export const qasSlice = createSlice({
       state.requestStatus = action.meta.requestStatus
       state.data = action.payload
     },
-    [qasHydrated.fulfilled](state, action) {
+    [qasDeleted.fulfilled](state, action) {
       state.data = action.payload
     },
+    [qaDeleted.fulfilled](state, action) {
+      state.data = action.payload
+    }
   }
 })
 
-export const { qaEditted, qaDeleted, qasDeleted } = qasSlice.actions
+export const { qaEditted } = qasSlice.actions
 
 export default qasSlice.reducer
