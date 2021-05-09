@@ -22,3 +22,12 @@
     @apply bg-white font-sans text-sm uppercase leading-loose px-4 py-2;
   }
 }
+
+@layer utilities {
+  .tooltip {
+    @apply invisible absolute;
+  }
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50
+  }
+}

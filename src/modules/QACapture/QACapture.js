@@ -12,7 +12,10 @@ function QACapture() {
 
   return (
     <>
-      <h2>Create a new question</h2>
+      <header class="has-tooltip">
+        <p class='tooltip rounded shadow-lg p-1 bg-red-50 text-red-600 -mt-5 py-2 px-4'>Here you can create new questions and their answers</p>
+        <h2>Create a new question</h2>
+      </header>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p class="mb-3">
           <label htmlFor="question">Question </label>
