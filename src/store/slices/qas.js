@@ -50,17 +50,24 @@ export const qaDeleted = createAsyncThunk(
   }
 )
 
+export const qaEditted = createAsyncThunk(
+  'qas/qaEditted',
+  async (qaA, { getState }) => {
+    const stateQas = getState().qas.data
+    const i = stateQas.findIndex(qaB => qaB.id === qaA.id)
+    const qas = [ ...stateQas ]
+    qas.splice(i, 1, qaA)
+
+    localStorage.setItem('ask-the-met/qas', JSON.stringify(qas));
+    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
+  }
+)
+
 export const qasSlice = createSlice({
   name: 'qas',
   initialState: {
     requestStatus: '',
     data: []
-  },
-  reducers: {
-    qaEditted: (state, action) => {
-      const i = state.data.findIndex(qa => qa.id === action.payload.id)
-      state.data[i] = action.payload
-    }
   },
   extraReducers: {
     [qasHydrated.fulfilled](state, action) {
@@ -81,10 +88,11 @@ export const qasSlice = createSlice({
     },
     [qaDeleted.fulfilled](state, action) {
       state.data = action.payload
+    },
+    [qaEditted.fulfilled](state, action) {
+      state.data = action.payload
     }
   }
 })
-
-export const { qaEditted } = qasSlice.actions
 
 export default qasSlice.reducer
