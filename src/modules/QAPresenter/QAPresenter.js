@@ -10,6 +10,8 @@ function QAPresenter() {
   const qasCreated = useSelector((state) => Boolean(state.qas.data.length))
   const [qasSorted, setQasSorted] = useState(false)
   const memoizedQas = useMemo(() => qasSorted ? qas.slice().sort(compareByQuestion) : qas, [qasSorted, qas])
+  const error = useSelector((state) => state.qas.requestStatus === 'rejected')
+  const pending = useSelector((state) => state.qas.requestStatus === 'pending')
   const handleSort = () => {
     setQasSorted(true)
   }
@@ -27,6 +29,8 @@ function QAPresenter() {
         ? (
           <>
             { memoizedQas.map(({ id, q, a }) => <QAToggle key={id} id={id} q={q} a={a} />) }
+            { error && <p className="bg-red-50 p-4 my-2">Something went wrong</p> }
+            { pending && <p className="bg-red-50 p-4 my-2">Saving question...</p> }
             <div>
               <button onClick={handleSort} className="mt-2 mr-3 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Sort questions</button>
               <button onClick={handleDelete} className="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500">Remove questions</button>

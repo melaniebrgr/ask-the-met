@@ -11,6 +11,14 @@ export const qaSubmitted = createAsyncThunk(
   }
 )
 
+export const qasHydrated = createAsyncThunk(
+  'qas/qasHydrated',
+  async () => {
+    console.log(JSON.parse(localStorage.getItem('ask-the-met/qas')));
+    return JSON.parse(localStorage.getItem('ask-the-met/qas'));
+  }
+)
+
 export const qasSlice = createSlice({
   name: 'qas',
   initialState: {
@@ -36,22 +44,17 @@ export const qasSlice = createSlice({
   },
   extraReducers: {
     [qaSubmitted.pending](state, action) {
-      return {
-        ...state,
-        requestStatus: action.meta.requestStatus,
-      }
-    },
-    [qaSubmitted.fulfilled](state, action) {
-      return {
-        requestStatus: action.meta.requestStatus,
-        data: action.payload
-      }
+      state.requestStatus = action.meta.requestStatus
     },
     [qaSubmitted.rejected](state, action) {
-      return {
-        ...state,
-        requestStatus: action.meta.requestStatus,
-      }
+      state.requestStatus = action.meta.requestStatus
+    },
+    [qaSubmitted.fulfilled](state, action) {
+      state.requestStatus = action.meta.requestStatus
+      state.data = action.payload
+    },
+    [qasHydrated.fulfilled](state, action) {
+      state.data = action.payload
     },
   }
 })
