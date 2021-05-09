@@ -46,7 +46,7 @@ Based on these, an initial set of components might be:
 - Q&A editor component (Q&A editted, "Q&A deleted")
 - Q&A presenter component ("Q&A sorted")
 
-![modules](./assets/ask-the-met.png)
+![modules](./assets/modules.png)
 
 ## Stories
 
@@ -72,6 +72,11 @@ Like a piece of art, an application is never done, we only stop working on it. H
 
 ## Getting started
 
-- Clone the repo
-- `yarn install`
+- `git clone git@github.com:melaniebrgr/ask-the-met.git`
+- `cd ask-the-met`
+- `yarn install` (node >=12.13.0)
 - `yarn start`
+
+## Preview
+
+![preview](./assets/preview.png)
