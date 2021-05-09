@@ -6,15 +6,21 @@ export const qasHydrated = createAsyncThunk(
   'qas/qasHydrated',
   async (_, { getState }) => {
     const stateQas = getState().qas.data
-    const localStorageQas = JSON.parse(localStorage.getItem('ask-the-met/qas')) || []
-    const mergedQas = [ ...stateQas ]
+    const localStorageQas = JSON.parse(localStorage.getItem('ask-the-met/qas'))
+    const qas = [ ...stateQas ]
 
     localStorageQas.forEach(qaA => {
       const qaExists = Boolean(stateQas.find(qaB => qaA.id === qaB.id))
-      if (!qaExists) mergedQas.push(qaA)
+      if (!qaExists) qas.push(qaA)
     })
 
-    return mergedQas;
+    if (!Boolean(qas.length)) qas.push({ 
+      id: uuid(),
+      q: "How to add a question? (Click me to find out)",
+      a: "Just use the form!"
+    })
+
+    return qas;
   }
 )
 
@@ -48,11 +54,7 @@ export const qasSlice = createSlice({
   name: 'qas',
   initialState: {
     requestStatus: '',
-    data: [{ 
-      id: uuid(),
-      q: "How to add a question? (Click me to find out)",
-      a: "Just use the form!"
-    }]
+    data: []
   },
   reducers: {
     qaEditted: (state, action) => {
