@@ -15,11 +15,11 @@ function QAEditor({ id, q, a, setEditorDisplay }) {
       <div className="bg-white-50 p-4 my-2">
         <p className="mb-3">
           <input id="edittedQuestion" defaultValue={q} {...register("edittedQuestion", { required: true })} className="block w-full" />
-          {errors.question && <span>This field is required</span>}
+          {errors.edittedQuestion && <span className="text-red-400">This field is required</span>}
         </p>
         <p>
           <input id="edittedAnswer" defaultValue={a} {...register("edittedAnswer", { required: true })} className="block w-full" />
-          {errors.answer && <span>This field is required</span>}
+          {errors.edittedAnswer && <span className="text-red-400">This field is required</span>}
         </p>
         <input type="submit" className="mt-2 rounded border border-gray-300 bg-white-50 hover:bg-gray-100 text-gray-500" />
       </div>

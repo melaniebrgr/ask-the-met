@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useDispatch } from 'react-redux'
 import { qaDeleted } from '../../../store/slices/qas'
 import QAStatic from './QAStatic'
@@ -30,4 +30,4 @@ function QAToggle({ id, q, a }) {
   )
 }
 
-export default QAToggle
+export default memo(QAToggle)
